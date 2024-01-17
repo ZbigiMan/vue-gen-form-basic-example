@@ -1,6 +1,6 @@
 <template>
-  <LoginForm />
+  <MyForm />
 </template>
 <script setup lang="ts">
-import LoginForm from './components/LoginForm.vue'
+import MyForm from './components/MyForm.vue'
 </script>

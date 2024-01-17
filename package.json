@@ -13,7 +13,8 @@
   },
   "dependencies": {
     "lodash": "^4.17.21",
-    "vue": "^3.2.47"
+    "vue": "^3.2.47",
+    "vue-gen-form": "^0.0.2"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.2.0",
