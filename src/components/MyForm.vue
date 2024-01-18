@@ -11,13 +11,6 @@
       </pre
         >
       </div>
-      <div class="flex flex-col px-6 py-4 mt-4 border border-gray-300 w-full rounded-xl">
-        <h4>formModel:</h4>
-        <pre class="p-4 w-full text-sm bg-blue-900 text-blue-100 whitespace-pre-wrap rounded-lg"
-          >{{ formModel }}
-      </pre
-        >
-      </div>
     </div>
   </main>
 </template>
@@ -135,14 +128,18 @@ const formModel = ref<GenFormField[]>([
     },
     validation: [
       {
+        required: {
+          message: 'The repeat password is required.'
+        }
+      },
+      {
         matchCheck: {
           message: 'The passwords do not match.',
           validator: () => {
-            return !!(
-              dataModel.value.password &&
-              dataModel.value.repeatPassword &&
-              dataModel.value.repeatPassword === dataModel.value.password
-            )
+            if (dataModel.value.repeatPassword) {
+              return !!(dataModel.value.repeatPassword === dataModel.value.password)
+            }
+            return true
           }
         }
       }
@@ -154,16 +151,10 @@ const formModel = ref<GenFormField[]>([
 const { GenForm, setFieldValue, validateFieldByName } = useGenForm({
   formModel: formModel,
   dataModel: dataModel,
-  submit: onMyFormSubmit,
-  colors: {
-    submitButtonBg: 'bg-blue-600',
-    submitButtonBgHover: 'hover:bg-blue-500',
-    submitButtonText: 'text-gray-100',
-    submitButtonTextHover: 'hover:text-white'
-  }
+  submit: onFormSubmit
 })
 
-function onMyFormSubmit() {
+function onFormSubmit() {
   console.log(formModel.value, dataModel.value)
 }
 </script>
