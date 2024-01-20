@@ -24,13 +24,21 @@ interface DataModel {
   isRegistration: boolean
   password: string | null
   repeatPassword: string | null
+  agreements: {
+    terms: boolean
+    marketing: boolean
+  }
 }
 
 const dataModel = ref<DataModel>({
   email: null,
   isRegistration: false,
   password: null,
-  repeatPassword: null
+  repeatPassword: null,
+  agreements: {
+    terms: false,
+    marketing: false
+  }
 })
 
 const formModel = ref<GenFormField[]>([
@@ -144,6 +152,62 @@ const formModel = ref<GenFormField[]>([
         }
       }
     ],
+    condition: () => dataModel.value.isRegistration
+  },
+  {
+    value: dataModel.value.agreements?.terms,
+    name: 'agreements.terms',
+    label: /* cSpell:disable */ /* HTML */ `Terms and conditions.
+      <p class="text-xs font-normal">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+        labore et dolore magna aliqua. <strong>Ut enim ad minim veniam</strong>, quis nostrud
+        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        <i
+          >Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+          nulla pariatur</i
+        >. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+        anim id est laborum.
+        <a
+          href="https://zbigiman.com/vue-gen-form/"
+          target="_blank"
+          class="text-blue-700 hover:underline"
+          >Read more.</a
+        >
+      </p>` /* cSpell:enable */,
+    component: 'Input',
+    formElementAttrs: {
+      type: 'checkbox'
+    },
+    validation: [
+      {
+        required: {
+          message: 'The Terms and conditions are required.'
+        }
+      }
+    ],
+    condition: () => dataModel.value.isRegistration
+  },
+  {
+    value: dataModel.value.agreements?.marketing,
+    name: 'agreements.marketing',
+    component: 'Input',
+    label: /* cSpell:disable */ /* HTML */ `Marketing communication.
+      <p class="text-xs font-normal">
+        Sed ut <strong>perspiciatis unde omnis</strong> iste natus error sit voluptatem accusantium
+        doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et
+        quasi <strong>architecto beatae vitae</strong> dicta sunt explicabo.
+        <i>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit</i>, sed quia
+        consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+        <a
+          href="https://zbigiman.com/vue-gen-form/"
+          target="_blank"
+          class="text-blue-700 hover:underline"
+          >Read more.</a
+        >
+      </p>` /* cSpell:enable */,
+    formElementAttrs: {
+      type: 'checkbox'
+    },
     condition: () => dataModel.value.isRegistration
   }
 ])
