@@ -17,7 +17,7 @@
 
 <script setup lang="ts">
 import { useGenForm, REGEX, type GenFormField } from 'vue-gen-form'
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 
 interface DataModel {
   email: string | null
@@ -212,13 +212,34 @@ const formModel = ref<GenFormField[]>([
   }
 ])
 
-const { GenForm, setFieldValue, validateFieldByName } = useGenForm({
-  formModel: formModel,
-  dataModel: dataModel,
-  submit: onFormSubmit
-})
+const loading = ref(false)
+const submitSuccess = ref<null | boolean>(null)
 
 function onFormSubmit() {
   console.log(formModel.value, dataModel.value)
+  loading.value = true
+  setTimeout(() => {
+    loading.value = false
+    submitSuccess.value = true
+  }, 1000)
 }
+
+function onTryAgain() {
+  console.log('try again')
+}
+
+const templateProps = computed(() => {
+  return {
+    loading: loading.value,
+    submitSuccess: submitSuccess.value
+  }
+})
+
+const { GenForm, setFieldValue, validateFieldByName } = useGenForm({
+  formModel: formModel,
+  dataModel: dataModel,
+  submit: onFormSubmit,
+  tryAgain: onTryAgain,
+  templateProps: templateProps
+})
 </script>
