@@ -16,7 +16,7 @@
 </template>
 
 <script setup lang="ts">
-import { useGenForm, REGEX, type GenFormField } from 'vue-gen-form'
+import { useGenForm, REGEX, type GenFormField, type GenFormTemplate } from 'vue-gen-form'
 import { computed, ref } from 'vue'
 
 interface DataModel {
@@ -220,15 +220,15 @@ function onFormSubmit() {
   loading.value = true
   setTimeout(() => {
     loading.value = false
-    submitSuccess.value = true
+    submitSuccess.value = true /* or false */
   }, 1000)
 }
 
 function onTryAgain() {
-  console.log('try again')
+  submitSuccess.value = null
 }
 
-const templateProps = computed(() => {
+const templateProps = computed<GenFormTemplate>(() => {
   return {
     loading: loading.value,
     submitSuccess: submitSuccess.value
