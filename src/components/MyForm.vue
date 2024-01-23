@@ -45,7 +45,8 @@ const formModel = ref<GenFormField[]>([
   {
     value: dataModel.value.email,
     name: 'email',
-    label: 'Email',
+    // eslint-disable-next-line quotes
+    label: /* HTML */ `Email<sup title="required">*</sup>`,
     component: 'Input',
     formElementAttrs: {
       type: 'text',
@@ -68,7 +69,7 @@ const formModel = ref<GenFormField[]>([
   {
     value: dataModel.value.isRegistration,
     name: 'isRegistration',
-    label: 'I want to register.',
+    label: 'I want to register',
     component: 'Input',
     formElementAttrs: {
       type: 'checkbox'
@@ -82,7 +83,8 @@ const formModel = ref<GenFormField[]>([
     value: dataModel.value.password,
     name: 'password',
     component: 'Input',
-    label: 'Password',
+    // eslint-disable-next-line quotes
+    label: /* HTML */ `Password<sup title="required">*</sup>`,
     formElementAttrs: {
       type: 'password',
       autocomplete: false,
@@ -127,7 +129,8 @@ const formModel = ref<GenFormField[]>([
   {
     value: dataModel.value.repeatPassword,
     name: 'repeatPassword',
-    label: 'Repeat the password',
+    // eslint-disable-next-line quotes
+    label: /* HTML */ `Repeat the password<sup title="required">*</sup>`,
     component: 'Input',
     formElementAttrs: {
       type: 'password',
@@ -157,7 +160,7 @@ const formModel = ref<GenFormField[]>([
   {
     value: dataModel.value.agreements?.terms,
     name: 'agreements.terms',
-    label: /* cSpell:disable */ /* HTML */ `Terms and conditions.
+    label: /* cSpell:disable */ /* HTML */ `Terms and conditions<sup title="required">*</sup>
       <p class="text-xs font-normal">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
         labore et dolore magna aliqua. <strong>Ut enim ad minim veniam</strong>, quis nostrud
@@ -191,7 +194,7 @@ const formModel = ref<GenFormField[]>([
     value: dataModel.value.agreements?.marketing,
     name: 'agreements.marketing',
     component: 'Input',
-    label: /* cSpell:disable */ /* HTML */ `Marketing communication.
+    label: /* cSpell:disable */ /* HTML */ `Marketing communication
       <p class="text-xs font-normal">
         Sed ut <strong>perspiciatis unde omnis</strong> iste natus error sit voluptatem accusantium
         doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et
