@@ -8,7 +8,7 @@ This example shows a simple form with conditional fields. Read more [here](https
 
 ![vue-gen-form-basic-example screenshot 1](https://zbigiman.com/vue-gen-form/assets/vue-gen-form-basic-example-1.png)
 
-[vue-gen-form-basic-example screenshot 2](https://zbigiman.com/vue-gen-form/assets/vue-gen-form-basic-example-2.png)
+![vue-gen-form-basic-example screenshot 2](https://zbigiman.com/vue-gen-form/assets/vue-gen-form-basic-example-2.png)
 
 ## Project Setup
 
