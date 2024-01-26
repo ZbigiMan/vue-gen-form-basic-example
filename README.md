@@ -1,4 +1,4 @@
-# vue-gen-form custom components
+# vue-gen-form: basic example
 
 The `vue-gen-form ` is a Vue 3 fully customizable form generator.
 
