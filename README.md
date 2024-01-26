@@ -2,9 +2,9 @@
 
 The `vue-gen-form ` is a Vue 3 fully customizable form generator.
 
-Read more about  the `vue-gen-form` on the project's [homepage](https://zbigiman.com/vue-gen-form/).
+Read more about  the `vue-gen-form` on the project's [homepage](https://zbigiman.com/vue-gen-form/){:target="_blank"}.
 
-This example shows a simple form with conditional fields. Read more [here](https://zbigiman.com/vue-gen-form/).
+This example shows a simple form with conditional fields. Read more [here](https://zbigiman.com/vue-gen-form/){:target="_blank"}.
 
 ![vue-gen-form-basic-example screenshot 1](https://zbigiman.com/vue-gen-form/assets/vue-gen-form-basic-example-1.png)
 
